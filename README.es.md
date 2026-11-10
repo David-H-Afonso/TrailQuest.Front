@@ -55,7 +55,21 @@ La imagen sirve recursos compilados con **Nginx sin root en el puerto 8080**, ad
 
 Se validan y escriben en la configuración de Nginx, **no en JavaScript ejecutable**. Solo el proxy configurado puede indicar HTTPS; Nginx sustituye las cabeceras enviadas a la API privada y se conservan sus comprobaciones de origen y cookies. Restringe el puerto HTTP privado al proxy. La dirección HTTPS, red y volúmenes se configuran en Compose, sin recompilar la interfaz.
 
-Los workflows opcionales de comprobación/publicación son **solo manuales**. Revisa los minutos de Actions si el repo es privado. Publicar exige un tag coincidente y revisión expresa de licencias; no hay despliegue automático a producción.
+### Publicación automática en GHCR
+
+Los pushes a `main` o `master` ejecutan las comprobaciones reutilizables de compilación/lint/tests/arranque/auditoría, construyen la imagen Linux amd64 y la analizan antes de publicar. Las pull requests verifican sin publicar; también se admite ejecución manual en las ramas/tags de versión admitidos. `GITHUB_TOKEN` aporta el permiso de registro limitado al job; no necesitas otro token personal, clave Garmin ni secretos `VITE_*`.
+
+- Rama predeterminada: `ghcr.io/david-h-afonso/trailquest-web:latest`, el tag de rama y `sha-<commit-completo>`.
+- Otra rama admitida: tags de rama y commit, sin sustituir `latest`.
+- Tag Git `v1.0.0` coincidente con `VERSION`: añade tags de imagen `1.0.0` / `v1.0.0`, rechazando versiones ya publicadas. Los commits normales no necesitan cambiar la versión ni crear un tag.
+
+Tras la primera publicación correcta, usa la imagen directamente en CasaOS o ejecuta:
+
+```bash
+docker pull ghcr.io/david-h-afonso/trailquest-web:latest
+```
+
+El resumen de Actions incluye tags, digest y comando de descarga fijada. Los forks usan su propio propietario en minúsculas. Los paquetes GHCR deben ser públicos para descargar sin iniciar sesión; si no, autentica Docker en el servidor. Actualiza API/web juntas con la guía de CasaOS de API; `latest` es una referencia móvil, así que conserva los digests probados para recuperar. No hay workflows programados ni despliegue automático a producción. Revisa los términos de terceros/fotos y los minutos de Actions en repos privados antes de distribuir.
 
 ## Privacidad e interacción
 

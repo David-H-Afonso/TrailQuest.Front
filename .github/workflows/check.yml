@@ -1,5 +1,9 @@
 name: Verify web
-on: workflow_dispatch
+on:
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -25,3 +29,4 @@ jobs:
             dist/version.json
             dist/licenses/
           if-no-files-found: warn
+          retention-days: 7

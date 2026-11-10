@@ -3,6 +3,7 @@
 Private activity views, photographic passports and an independently configured web container.
 
 - Independent frontend Git repository and `trailquest-web` image; compiled React/TypeScript, non-root Nginx and read-only filesystem support.
+- Automatic GHCR builds on `main`/`master` pushes after reusable verification and image scanning, with `latest`/commit tags, digest pull commands and optional numbered releases. Pull requests only verify; no server deployment is triggered.
 - Same-origin API access, runtime server-side proxy configuration and no baked-in installation accounts, passwords or IP addresses.
 - Clear passport progress/stamp states, factual place sheets and credited real photography supplied by the API packs.
 - Health/activity data above secondary explanations, responsive chart geometry and compact date controls.

@@ -11,6 +11,7 @@ This is the independent frontend repository. Backend code, migrations, deploymen
 - Render adventure content from API metadata, not route-ID branches or invented place visits. Demo is removable and may be disabled entirely.
 - Review dependency rights and preserve generated original license texts. Do not replace Hippocratic/OFL/CC terms with the project's MIT label.
 - Keep README English/Spanish equivalent and document configuration changes. Do not add a new browser/test framework or paid service without agreement.
+- Pull requests verify without publication. Pushes to `main`/`master` publish a scanned GHCR image after the reusable checks pass; numbered images require a matching `v<VERSION>` Git tag, not a version bump on every commit. Registry authentication uses `GITHUB_TOKEN`, never app credentials or build-time secrets.
 
 Explain the problem, acceptance criteria and verification. Do not publish private health screenshots, session cookies, account credentials or database exports. Use `SECURITY.md` for sensitive reports. Original-code contributions use MIT. Be respectful; no CLA or invented contact address is required.
 
@@ -21,3 +22,5 @@ El frontend tiene Git independiente. Backend, migraciones, Compose y releases de
 Usa Node mantenido y las comprobaciones indicadas. Respeta la capa de servicios, aislamiento de cachés, accesibilidad, estados vacíos y privacidad de credenciales. Para cambios visuales, guarda capturas reales antes/después en móvil, tablet y escritorio con datos sintéticos; selecciona Prueba expresamente y simula los tiles externos.
 
 Las aventuras se renderizan desde sus metadatos, sin lógica por ID ni visitas inventadas; los ejemplos son opcionales. Conserva las licencias originales de dependencias, fuentes y fotografías y los dos README equivalentes. No introduzcas servicios de pago ni otro framework de pruebas sin acordarlo. Explica problema, aceptación y pruebas sin publicar datos privados; comunica vulnerabilidades en privado. El código propio aportado se recibe bajo MIT y se espera un trato respetuoso.
+
+Las pull requests verifican sin publicar. Los pushes a `main`/`master` publican una imagen analizada en GHCR tras pasar las comprobaciones reutilizables; las versiones numeradas requieren un tag Git `v<VERSION>` coincidente, no cambiar la versión en cada commit. Se autentica con `GITHUB_TOKEN`, nunca con credenciales de la app ni secretos de compilación.

@@ -55,7 +55,21 @@ The image serves compiled assets using **non-root Nginx on port 8080**, supports
 
 Runtime values are validated and rendered into Nginx configuration, **not executable JavaScript**. Only the configured proxy can supply the HTTPS forwarding signal. Nginx replaces forwarded headers sent to the private API; backend origin/cookie checks remain enforced. The private HTTP upstream must be restricted to the reverse proxy. Configure the public HTTPS address, network and persistent API mounts in Compose, not by rebuilding this UI.
 
-The optional GitHub verification/publication workflows are **manual only**. Review Actions allowance before dispatching in a private repository. Publishing requires a matching version tag and explicit license review; no automatic production deployment is included.
+### Automatic GHCR publication
+
+Pushes to `main` or `master` run the reusable build/lint/unit/runtime/audit checks, build the Linux amd64 image and scan it before publishing. Pull requests verify without publishing; manual dispatch is also available on supported branches/release tags. `GITHUB_TOKEN` supplies the job-scoped registry permission; no new personal token, Garmin key or `VITE_*` secret is required.
+
+- Default branch: `ghcr.io/david-h-afonso/trailquest-web:latest`, the branch tag and `sha-<full-commit>`.
+- Other supported branch: branch and commit tags, without replacing `latest`.
+- A `v1.0.0` Git tag matching `VERSION`: additional `1.0.0` / `v1.0.0` image tags, with existing release versions refused. Ordinary commits do not need a version bump or tag.
+
+After the first successful publication, use the image directly in CasaOS or run:
+
+```bash
+docker pull ghcr.io/david-h-afonso/trailquest-web:latest
+```
+
+The workflow summary supplies all tags, the digest and a pinned pull command. Forks use their own lower-case owner. GHCR packages must be public for anonymous pulls, or the Docker host must authenticate. Update the paired API/web together using the API's CasaOS guide; `latest` is a moving reference, so retain tested digests for rollback. There are no scheduled workflows or automatic production deployments. Review separate dependency/photo terms and private-repository Actions allowance before distribution.
 
 ## Privacy and interaction
 
