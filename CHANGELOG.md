@@ -10,4 +10,6 @@ Pushes to `main`/`master` automatically verify, build, scan and publish web imag
 
 The image scanner uses the runner's UID/GID and private cache home so cleanup does not fail on root-owned files. Offline wrapper regressions retain the vulnerability/secret gates and error handling. The web runtime pins the Alpine `libxslt` security patch `1.1.43-r4`.
 
+One-time integration credentials now fall back to manual copy when the Clipboard API is unavailable, including explicitly configured LAN HTTP installations.
+
 Deploy with the paired 1.0 API/Compose contract. See [release notes](RELEASE_NOTES.md).

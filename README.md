@@ -74,6 +74,7 @@ The workflow summary supplies all tags, the digest and a pinned pull command. Fo
 ## Privacy and interaction
 
 - Sessions use the API's HttpOnly host-only cookie, not tokens in Redux/localStorage. Profile/account transitions do not display a previous account's cached records.
+- Direct LAN HTTP requires the API's explicit private-LAN mode; it is not enabled by changing a web URL alone. HTTPS remains the Internet-facing default. When an HTTP browser has no Clipboard API, one-time credentials offer manual copying instead of throwing an error.
 - Each profile has one active passport. Leave or confirm a switch without deleting progress, the original start date or stamps; inactive passports stop advancing. Resuming adds newly recorded steps from today, not inactive days. The rest of the app stays available without an active adventure.
 - Settings links directly to Garmin Connect's personal API key page and explains setup. With Garmin connected, replacement stays collapsed until opened; closing it clears the entered value and the stored key is never displayed.
 - Modals dismiss on Escape, close or a real backdrop click, restore focus, and keep actions visible. Notices dismiss automatically with reading-time pauses.

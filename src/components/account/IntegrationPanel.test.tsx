@@ -12,6 +12,22 @@ vi.mock('../../services/adventureApi', async (importOriginal) => {
 });
 vi.mock('../../services/privateRequests', () => ({ privateRequests: { createGrant: vi.fn() } }));
 
+it('falls back to manual copy when HTTP has no Clipboard API', async () => {
+  const descriptor = Object.getOwnPropertyDescriptor(navigator, 'clipboard');
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: undefined });
+  try {
+    vi.mocked(privateRequests.createGrant).mockResolvedValue({ token: 'synthetic-http-credential', grant: { id:'fixture',application:'Fixture',scopes:['steps:read'],expiresAtUtc:'2026-12-01T00:00:00Z' } });
+    render(<Provider store={createAppStore()}><IntegrationPanel accountId="fixture-user" /></Provider>);
+    await userEvent.type(screen.getByLabelText('Aplicación autorizada'),'Fixture');
+    await userEvent.click(screen.getByLabelText('Pasos y distancia diaria'));
+    await userEvent.click(screen.getByRole('button',{name:'Crear permiso revocable'}));
+    await userEvent.click(await screen.findByRole('button',{name:'Copiar'}));
+    expect(await screen.findByText('El navegador no permitió copiar. Selecciona el campo y cópialo manualmente.')).toBeVisible();
+  } finally {
+    if (descriptor) Object.defineProperty(navigator, 'clipboard', descriptor);
+    else Reflect.deleteProperty(navigator, 'clipboard');
+  }
+});
 it('shows a one-time application credential outside Redux and removes it when dismissed', async () => {
   vi.mocked(privateRequests.createGrant).mockResolvedValue({ token: 'synthetic-one-time-credential', grant: { id:'fixture',application:'Fixture',scopes:['steps:read'],expiresAtUtc:'2026-12-01T00:00:00Z' } });
   const store = createAppStore();

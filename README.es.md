@@ -74,6 +74,7 @@ El resumen de Actions incluye tags, digest y comando de descarga fijada. Los for
 ## Privacidad e interacción
 
 - Se utiliza la cookie HttpOnly y limitada al host de la API; no hay tokens en Redux/localStorage. Cambiar de perfil/cuenta no muestra registros cacheados de otra persona.
+- HTTP directo por LAN requiere activar expresamente ese modo en API; no basta con cambiar la URL de Web. HTTPS sigue siendo el valor predeterminado para Internet. Si el navegador HTTP no tiene API de portapapeles, las credenciales de un solo uso permiten copia manual sin lanzar un error.
 - Cada perfil tiene un solo pasaporte activo. Puedes salir o confirmar un cambio sin borrar avance, fecha de inicio ni sellos; los inactivos dejan de sumar. Retomar cuenta los nuevos pasos registrados desde hoy, no los días inactivos. El resto de la app sigue disponible sin una aventura activa.
 - Ajustes enlaza directamente con la clave de API personal de Garmin Connect y explica la configuración. Si Garmin ya está conectado, la sustitución permanece plegada; cerrarla vacía el valor introducido y la clave guardada nunca se muestra.
 - Los modales cierran con Escape, botón o pulsación exterior real, devuelven el foco y conservan las acciones visibles. Los avisos desaparecen solos y pausan su temporizador al leerlos.
