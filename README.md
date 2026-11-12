@@ -81,6 +81,7 @@ The workflow summary supplies all tags, the digest and a pinned pull command. Fo
 - GPS defaults to a private offline trace. Opening OpenStreetMap tiles is explicit; automation must intercept tiles rather than pan public providers.
 - Demo is optional and disabled by default in production. It is not a fallback for personal health data. Disabling it hides the selector; resetting it never resets personal activity.
 - Exports are private. The UI can request date partitions and verifies the API honoured the interval. JSON export is not full disaster recovery or a JSON restore implementation.
+- Settings also prepares day-grouped Garmin JSON for a date range and all or selected datasets, with copy/download controls. Sensitive datasets need explicit confirmation; credentials and GPS/original files stay out, and nothing is sent to ChatGPT automatically.
 
 ## License and support
 

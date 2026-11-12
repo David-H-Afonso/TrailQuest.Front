@@ -9,4 +9,5 @@ export const apiRoutes = {
   demoAdvance: '/demo/advance',
   demoReset: '/demo/reset',
   export: (profile: string) => `/api/v1/profiles/${profile}/export`,
+  garminExport: (profile: string) => `/api/v1/profiles/${profile}/health/export`,
 };

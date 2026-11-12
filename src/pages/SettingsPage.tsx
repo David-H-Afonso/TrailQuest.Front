@@ -7,6 +7,7 @@ import { getErrorMessage } from '../utils/errors';
 import { AccountPanel, UsersPanel } from '../components/account/AccountPanels';
 import { GarminConnectionPanel } from '../components/account/GarminConnectionPanel';
 import { GarminSyncPanel } from '../components/account/GarminSyncPanel';
+import { GarminDataExportPanel } from '../components/account/GarminDataExportPanel';
 import { IntegrationPanel } from '../components/account/IntegrationPanel';
 import { Button } from '../components/elements/Button';
 import { Icon } from '../components/elements/Icon';
@@ -101,7 +102,7 @@ export function SettingsPage({ dashboard, user, onFeedback, onUsePersonal, onRes
   return <>
     <PageHeading title="Ajustes" />
     <div className="settings-grid"><div className="settings-column"><AccountPanel user={user} onSessionClosed={onSessionClosed} /><PreferencesForm key={settingsKey} dashboard={dashboard} onFeedback={onFeedback} />{dashboard.currentJourney && <JourneyDateForm key={`${dashboard.profileId}-${dashboard.currentJourney.routeId}-${dashboard.currentJourney.startedOn}`} dashboard={dashboard} journey={dashboard.currentJourney} onFeedback={onFeedback} />}{user.isOwner && <UsersPanel user={user} onFeedback={onFeedback} />}</div>
-      <div className="settings-column"><GarminConnectionPanel user={user} dashboard={dashboard} onFeedback={onFeedback} onUsePersonal={onUsePersonal} /><GarminSyncPanel dashboard={dashboard} accountId={user.id} /><IntegrationPanel accountId={user.id} /><ExportPanel dashboard={dashboard} onFeedback={onFeedback} />
+      <div className="settings-column"><GarminConnectionPanel user={user} dashboard={dashboard} onFeedback={onFeedback} onUsePersonal={onUsePersonal} /><GarminSyncPanel dashboard={dashboard} accountId={user.id} />{dashboard.profileId === 'personal' && <GarminDataExportPanel dashboard={dashboard} />}<IntegrationPanel accountId={user.id} /><ExportPanel dashboard={dashboard} onFeedback={onFeedback} />
         <details className="settings-panel panel"><summary>Datos de prueba</summary><p className="field-help">Solo afecta al perfil de prueba. Si los ejemplos están desactivados, queda vacío. Tus datos personales y Garmin no cambian.</p><Button variant="ghost" onClick={onResetDemo}>Reiniciar solo la prueba</Button></details>
         <details className="settings-panel panel"><summary>Acerca de TrailQuest</summary><p>Versión de la interfaz: {version}</p><p className="field-help">Código del proyecto con licencia MIT. Los componentes externos conservan sus propias licencias.</p><a className="text-link" href="/licenses/index.html" target="_blank" rel="noopener noreferrer">Licencias y créditos</a></details>
       </div>

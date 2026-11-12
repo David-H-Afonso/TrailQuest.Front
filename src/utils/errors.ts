@@ -24,7 +24,7 @@ const messages: Record<string, string> = {
   garmin_unavailable: 'Garmin no está disponible ahora. Tu historial no se ha modificado.',
   garmin_rate_limit: 'Garmin ha limitado temporalmente las consultas. Espera un poco antes de repetir.',
   invalid_sync_range: 'Elige un periodo de hasta 28 días, sin fechas futuras.',
-  personal_profile_required: 'Cambia a Mis datos para sincronizar Garmin.',
+  personal_profile_required: 'Cambia a Mis datos para sincronizar o exportar Garmin.',
   route_not_found: 'Esta ruta no está disponible. Elige otra en Explorar.',
   journey_not_found: 'Primero comienza esta aventura desde Explorar.',
   validation: 'Revisa los campos e inténtalo de nuevo.',
@@ -34,6 +34,7 @@ const messages: Record<string, string> = {
   archive_too_large: 'La selección es demasiado grande. Elige un periodo más corto o menos registros de origen; no se ha borrado ningún dato.',
   export_in_progress: 'Ya hay una exportación en curso para tu cuenta. Espera a que termine.',
   invalid_range: 'Elige un periodo de entre 1 y 366 días.',
+  invalid_dataset_selection: 'Elige todos los conjuntos Garmin o una selección disponible.',
   content_update_incompatible: 'Esta edición cambia el recorrido. Se ha conservado tu aventura actual.',
 };
 

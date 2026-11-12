@@ -81,6 +81,7 @@ El resumen de Actions incluye tags, digest y comando de descarga fijada. Los for
 - GPS muestra primero el trazado privado sin proveedor. Abrir tiles OpenStreetMap es explícito; las pruebas interceptan las peticiones y no recorren servidores públicos.
 - Los ejemplos son opcionales y están apagados en producción. No rellenan tu salud personal. Al desactivarlos se oculta el selector; reiniciarlos nunca borra actividad personal.
 - Las exportaciones son privadas. La interfaz puede pedir fechas y comprueba que la API respetó el intervalo. El JSON no es una copia de recuperación completa ni una restauración JSON implementada.
+- Ajustes también prepara JSON diario de Garmin para un intervalo y todos o algunos conjuntos, con botones para copiar o descargar. Los datos sensibles requieren confirmación; no incluye claves ni originales/trazados GPS y nunca se envía automáticamente a ChatGPT.
 
 ## Licencia y ayuda
 

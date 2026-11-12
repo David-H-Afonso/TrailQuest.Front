@@ -270,6 +270,12 @@ body { background:var(--canvas); font-size:1rem; }
 .share-preview { display:grid; gap:15px; padding:18px; border:1px solid #cfe0da; border-radius:8px; background:var(--teal-soft); }
 .inline-feedback { font-size:.85rem; padding:13px 16px; border:1px solid #cfe0da; border-radius:7px; background:var(--teal-soft); margin:14px 0; }
 .dataset-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.garmin-data-export__privacy { padding:13px 15px; border-left:3px solid var(--teal); background:var(--teal-soft); color:var(--ink); font-size:.82rem; line-height:1.6; }
+.garmin-data-export__fieldset { min-width:0; border:0; padding:0; margin:0; }
+.garmin-data-export__fieldset legend { padding:0 0 10px; font-size:.85rem; font-weight:600; }
+.garmin-data-export__confirm { padding:12px 14px; border:1px solid #e5d7c8; border-radius:8px; background:#fffdf9; }
+.garmin-data-export__result { display:grid; gap:12px; margin-top:18px; }
+.garmin-data-export__json { width:100%; min-height:230px; max-height:520px; resize:vertical; padding:14px; border:1px solid var(--line); border-radius:8px; background:#f6f8f8; color:var(--ink); font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.76rem; line-height:1.55; white-space:pre; tab-size:2; }
 .dataset-option { display:flex; gap:10px; cursor:pointer; align-items:flex-start; border:1px solid var(--line); border-radius:8px; padding:13px; }
 .dataset-option input { width:18px; height:18px; flex-shrink:0; margin:3px 0 0; accent-color:var(--teal); }
 .dataset-option span { display:grid; gap:6px; }

@@ -12,4 +12,6 @@ The image scanner uses the runner's UID/GID and private cache home so cleanup do
 
 One-time integration credentials now fall back to manual copy when the Clipboard API is unavailable, including explicitly configured LAN HTTP installations.
 
+Settings now prepares a day-grouped Garmin JSON export by date range and all or selected datasets, with copy/download actions, sensitive-data confirmation and an explicit no-automatic-upload privacy notice.
+
 Deploy with the paired 1.0 API/Compose contract. See [release notes](RELEASE_NOTES.md).
